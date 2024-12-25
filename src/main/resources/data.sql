@@ -22,3 +22,8 @@ INSERT INTO savings_goal (id, owner_id, name, target_amount, saved_amount, deadl
 VALUES
 (1, 1, 'Vacation Fund', 2000.00, 500.00, '2024-06-01'),
 (2, 2, 'Car Down Payment', 5000.00, 2000.00, '2024-12-01');
+-- Sequence id generation resume after initialization
+ALTER TABLE owner ALTER COLUMN id RESTART WITH 3;
+ALTER TABLE budget ALTER COLUMN id RESTART WITH 4;
+ALTER TABLE transaction ALTER COLUMN id RESTART WITH 6;
+ALTER TABLE savings_goal ALTER COLUMN id RESTART WITH 3;

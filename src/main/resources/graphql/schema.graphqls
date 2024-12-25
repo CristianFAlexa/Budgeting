@@ -1,5 +1,19 @@
 type Query {
     owners: [Owner]
+    ownerById(id: ID!): Owner
+}
+
+type Mutation {
+    addTransaction(transaction: TransactionInput): Transaction
+}
+
+input TransactionInput {
+    cashFlow: String # could be income or expense
+    amount: Float!
+    category: String
+    description: String
+    initiatedOn: String!
+    ownerId: ID!
 }
 
 type Owner {
