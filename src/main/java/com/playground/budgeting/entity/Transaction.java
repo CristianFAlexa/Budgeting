@@ -46,14 +46,6 @@ public class Transaction {
 
     @Override
     public int hashCode() {
-        int result = Objects.hashCode(id);
-        result = 31 * result + Objects.hashCode(cashFlow);
-        result = 31 * result + Objects.hashCode(amount);
-        result = 31 * result + Objects.hashCode(category);
-        result = 31 * result + Objects.hashCode(description);
-        result = 31 * result + Objects.hashCode(initiatedOn);
-        result = 31 * result + Objects.hashCode(createdAt);
-        result = 31 * result + Objects.hashCode(owner);
-        return result;
+        return getClass().hashCode();
     }
 }

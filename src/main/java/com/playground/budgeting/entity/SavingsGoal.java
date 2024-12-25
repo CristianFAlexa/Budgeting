@@ -46,14 +46,6 @@ public class SavingsGoal {
 
     @Override
     public int hashCode() {
-        int result = Objects.hashCode(id);
-        result = 31 * result + Objects.hashCode(name);
-        result = 31 * result + Objects.hashCode(targetAmount);
-        result = 31 * result + Objects.hashCode(savedAmount);
-        result = 31 * result + Objects.hashCode(deadline);
-        result = 31 * result + Objects.hashCode(createdAt);
-        result = 31 * result + Objects.hashCode(transactions);
-        result = 31 * result + Objects.hashCode(owner);
-        return result;
+        return getClass().hashCode();
     }
 }

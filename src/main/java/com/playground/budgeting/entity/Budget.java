@@ -45,13 +45,6 @@ public class Budget {
 
     @Override
     public int hashCode() {
-        int result = Objects.hashCode(id);
-        result = 31 * result + Objects.hashCode(category);
-        result = 31 * result + Objects.hashCode(threshold);
-        result = 31 * result + Objects.hashCode(spent);
-        result = 31 * result + Objects.hashCode(createdAt);
-        result = 31 * result + Objects.hashCode(transactions);
-        result = 31 * result + Objects.hashCode(owner);
-        return result;
+        return getClass().hashCode();
     }
 }

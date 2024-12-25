@@ -49,14 +49,6 @@ public class Owner {
 
     @Override
     public int hashCode() {
-        int result = Objects.hashCode(id);
-        result = 31 * result + Objects.hashCode(name);
-        result = 31 * result + Objects.hashCode(email);
-        result = 31 * result + Objects.hashCode(currency);
-        result = 31 * result + Objects.hashCode(createdAt);
-        result = 31 * result + Objects.hashCode(budgets);
-        result = 31 * result + Objects.hashCode(transactions);
-        result = 31 * result + Objects.hashCode(savingsGoals);
-        return result;
+        return getClass().hashCode();
     }
 }

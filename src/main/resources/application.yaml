@@ -9,4 +9,6 @@ spring:
   sql:
     init:
       mode: always
-
+  graphql:
+    graphiql:
+      enabled: true
