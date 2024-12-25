@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: budgeting
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    defer-datasource-initialization: true
+  sql:
+    init:
+      mode: always
+
