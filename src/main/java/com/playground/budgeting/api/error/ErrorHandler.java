@@ -3,11 +3,11 @@ package com.playground.budgeting.api.error;
 import graphql.GraphQLError;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.graphql.execution.ErrorType;
-import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
 @Slf4j
-@ControllerAdvice
+@Component
 public class ErrorHandler {
 
     @ExceptionHandler(RuntimeException.class)

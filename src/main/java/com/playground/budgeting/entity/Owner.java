@@ -27,7 +27,7 @@ public class Owner {
     @JoinColumn(name = "owner_id", referencedColumnName = "id")
     private Set<Budget> budgets = new HashSet<>();
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     @JoinColumn(name = "owner_id", referencedColumnName = "id")
     private Set<Transaction> transactions = new HashSet<>();
 
