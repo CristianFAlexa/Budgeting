@@ -1,12 +1,3 @@
-type Query {
-    owners: [Owner]
-    ownerById(id: ID!): Owner
-}
-
-type Mutation {
-    addTransaction(transaction: TransactionInput): Transaction
-}
-
 input TransactionInput {
     cashFlow: CashFlowType
     amount: Float!
