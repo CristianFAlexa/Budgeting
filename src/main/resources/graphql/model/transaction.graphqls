@@ -1,0 +1,9 @@
+type Transaction {
+    id: ID!
+    cashFlow: CashFlowType
+    amount: Float!
+    category: String
+    description: String
+    initiatedOn: String
+    createdAt: String!
+}

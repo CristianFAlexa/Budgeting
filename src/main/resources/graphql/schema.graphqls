@@ -8,50 +8,10 @@ type Mutation {
 }
 
 input TransactionInput {
-    cashFlow: String # could be income or expense
+    cashFlow: CashFlowType
     amount: Float!
     category: String
     description: String
     initiatedOn: String!
     ownerId: ID!
-}
-
-type Owner {
-    id: ID!
-    name: String!
-    email: String
-    currency: String!
-    createdAt: String!
-    budgets: [Budget!]
-    savingsGoals: [SavingsGoal!]
-    transactions: [Transaction!]
-}
-
-type Budget {
-    id: ID!
-    category: String!
-    threshold: Float
-    spent: Float
-    createdAt: String!
-    transactions: [Transaction!]
-}
-
-type Transaction {
-    id: ID!
-    cashFlow: String # could be income or expense
-    amount: Float!
-    category: String
-    description: String
-    initiatedOn: String
-    createdAt: String!
-}
-
-type SavingsGoal {
-    id: ID!
-    name: String!
-    targetAmount: Float!
-    savedAmount: Float!
-    deadline: String
-    createdAt: String!
-    transactions: [Transaction!]
 }

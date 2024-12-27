@@ -3,6 +3,7 @@ package com.playground.budgeting.api;
 import com.playground.budgeting.dto.TransactionInput;
 import com.playground.budgeting.entity.Owner;
 import com.playground.budgeting.entity.Transaction;
+import com.playground.budgeting.entity.type.CashFlowType;
 import com.playground.budgeting.repository.OwnerRepository;
 import com.playground.budgeting.repository.TransactionRepository;
 import lombok.RequiredArgsConstructor;
@@ -37,7 +38,7 @@ public class OwnerApi {
             .orElseThrow(() -> new IllegalArgumentException("Owner with id: " + transaction.ownerId() + " not found"));
 
         var newTransaction = new Transaction();
-        newTransaction.setCashFlow(transaction.cashFlow());
+        newTransaction.setCashFlow(CashFlowType.valueOf(transaction.cashFlow()));
         newTransaction.setAmount(transaction.amount());
         newTransaction.setCategory(transaction.category());
         newTransaction.setDescription(transaction.description());

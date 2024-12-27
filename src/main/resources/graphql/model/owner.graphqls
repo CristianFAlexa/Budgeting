@@ -1,0 +1,10 @@
+type Owner {
+    id: ID!
+    name: String!
+    email: String
+    currency: String!
+    createdAt: String!
+    budgets: [Budget!]
+    savingsGoals: [SavingsGoal!]
+    transactions: [Transaction!]
+}

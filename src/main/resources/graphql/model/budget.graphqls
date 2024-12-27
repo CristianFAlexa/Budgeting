@@ -1,0 +1,8 @@
+type Budget {
+    id: ID!
+    category: String!
+    threshold: Float
+    spent: Float
+    createdAt: String!
+    transactions: [Transaction!]
+}

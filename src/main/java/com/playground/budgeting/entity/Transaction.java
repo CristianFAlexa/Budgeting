@@ -1,5 +1,6 @@
 package com.playground.budgeting.entity;
 
+import com.playground.budgeting.entity.type.CashFlowType;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -17,7 +18,8 @@ public class Transaction {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String cashFlow;
+    @Enumerated(value = EnumType.STRING)
+    private CashFlowType cashFlow;
     private BigDecimal amount;
     private String category;
     private String description;

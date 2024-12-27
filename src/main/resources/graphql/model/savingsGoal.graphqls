@@ -1,0 +1,9 @@
+type SavingsGoal {
+    id: ID!
+    name: String!
+    targetAmount: Float!
+    savedAmount: Float!
+    deadline: String
+    createdAt: String!
+    transactions: [Transaction!]
+}
