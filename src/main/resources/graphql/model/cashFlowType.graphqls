@@ -1,3 +1,4 @@
+# This enum describes a transaction cash flow type
 enum CashFlowType {
     INCOME,
     EXPENSE
