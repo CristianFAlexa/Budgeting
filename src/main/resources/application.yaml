@@ -13,3 +13,5 @@ spring:
   graphql:
     graphiql:
       enabled: true
+    servlet:
+      maxQueryDepth: 4
