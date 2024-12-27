@@ -15,3 +15,4 @@ spring:
       enabled: true
     servlet:
       maxQueryDepth: 4
+      exception-handlers-enabled: true
