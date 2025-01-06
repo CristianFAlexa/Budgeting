@@ -25,7 +25,7 @@ public class Owner {
     private Instant createdAt;
 
     @Builder.Default
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     @JoinColumn(name = "owner_id", referencedColumnName = "id")
     private Set<Budget> budgets = new HashSet<>();
 
@@ -35,7 +35,7 @@ public class Owner {
     private Set<Transaction> transactions = new HashSet<>();
 
     @Builder.Default
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     @JoinColumn(name = "owner_id", referencedColumnName = "id")
     private Set<SavingsGoal> savingsGoals = new HashSet<>();
 
