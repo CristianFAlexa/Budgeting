@@ -1,8 +1,7 @@
 package com.playground.budgeting.entity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.Instant;
 import java.util.HashSet;
@@ -10,7 +9,9 @@ import java.util.Objects;
 import java.util.Set;
 
 @Getter
-@Setter
+@Builder
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 @Entity(name = "Owner")
 @Table(name = "owner")
 public class Owner {

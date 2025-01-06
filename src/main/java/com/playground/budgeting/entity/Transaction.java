@@ -2,15 +2,16 @@ package com.playground.budgeting.entity;
 
 import com.playground.budgeting.entity.type.CashFlowType;
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.Objects;
 
 @Getter
-@Setter
+@Builder
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 @Entity(name = "Transaction")
 @Table(name = "transaction")
 public class Transaction {

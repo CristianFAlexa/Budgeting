@@ -37,13 +37,14 @@ public class OwnerApi {
         final var owner = ownerRepository.findById(transaction.ownerId())
             .orElseThrow(() -> new IllegalArgumentException("Owner with id: " + transaction.ownerId() + " not found"));
 
-        var newTransaction = new Transaction();
-        newTransaction.setCashFlow(CashFlowType.valueOf(transaction.cashFlow()));
-        newTransaction.setAmount(transaction.amount());
-        newTransaction.setCategory(transaction.category());
-        newTransaction.setDescription(transaction.description());
-        newTransaction.setInitiatedOn(Instant.parse(transaction.initiatedOn()));
-        newTransaction.setOwner(owner);
+        var newTransaction = Transaction.builder()
+            .cashFlow(CashFlowType.valueOf(transaction.cashFlow()))
+            .amount(transaction.amount())
+            .category(transaction.category())
+            .description(transaction.description())
+            .initiatedOn(Instant.parse(transaction.initiatedOn()))
+            .owner(owner)
+            .build();
 
         return transactionRepository.save(newTransaction);
     }
