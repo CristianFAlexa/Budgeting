@@ -15,7 +15,7 @@ public class TransactionApi {
     private final TransactionService transactionService;
 
     @MutationMapping
-    Transaction addTransaction(@Argument TransactionInput transaction) {
+    public Transaction addTransaction(@Argument TransactionInput transaction) {
         return transactionService.addTransaction(transaction);
     }
 }

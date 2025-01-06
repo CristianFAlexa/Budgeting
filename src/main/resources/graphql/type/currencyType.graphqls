@@ -1,0 +1,7 @@
+# This enum describes the allowed currency types
+enum CurrencyType {
+    EUR,
+    USD,
+    GBP,
+    RON
+}

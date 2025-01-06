@@ -7,16 +7,19 @@ import com.playground.budgeting.repository.OwnerRepository;
 import com.playground.budgeting.repository.TransactionRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.Instant;
 
 @Service
 @RequiredArgsConstructor
+@Transactional(readOnly = true)
 public class TransactionService {
 
     private final TransactionRepository transactionRepository;
     private final OwnerRepository ownerRepository;
 
+    @Transactional
     public Transaction addTransaction(TransactionInput transaction) {
         final var owner = ownerRepository.findById(transaction.ownerId())
             .orElseThrow(() -> new IllegalArgumentException("Owner with id: " + transaction.ownerId() + " not found"));

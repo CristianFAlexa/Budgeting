@@ -1,0 +1,7 @@
+input SavingsGoalInput {
+    name: String!
+    targetAmount: Float!
+    savedAmount: Float
+    deadline: String
+    ownerId: ID!
+}

@@ -1,5 +1,6 @@
 package com.playground.budgeting.entity;
 
+import com.playground.budgeting.entity.type.CurrencyType;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -21,7 +22,8 @@ public class Owner {
 
     private String name;
     private String email;
-    private String currency;
+    @Enumerated(value = EnumType.STRING)
+    private CurrencyType currency;
     private Instant createdAt;
 
     @Builder.Default

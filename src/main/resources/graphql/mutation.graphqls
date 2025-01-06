@@ -1,3 +1,6 @@
 type Mutation {
     addTransaction(transaction: TransactionInput): Transaction
+    addOwner(owner: OwnerInput): Owner
+    addBudget(budget: BudgetInput): Budget
+    addSavingsGoal(savingsGoal: SavingsGoalInput): SavingsGoal
 }

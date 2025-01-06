@@ -2,7 +2,7 @@ type Owner {
     id: ID!
     name: String!
     email: String
-    currency: String!
+    currency: CurrencyType!
     createdAt: String!
     budgets: [Budget!]
     savingsGoals: [SavingsGoal!]

@@ -1,0 +1,6 @@
+input BudgetInput {
+    category: String!
+    threshold: Float!
+    spent: Float
+    ownerId: ID!
+}
