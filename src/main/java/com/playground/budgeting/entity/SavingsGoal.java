@@ -12,7 +12,7 @@ import java.util.Set;
 @Getter
 @Builder
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity(name = "SavingsGoal")
 @Table(name = "savingsGoal")
 public class SavingsGoal {
@@ -26,6 +26,7 @@ public class SavingsGoal {
     private Instant deadline;
     private Instant createdAt;
 
+    @Builder.Default
     @OneToMany(cascade = CascadeType.ALL)
     private Set<Transaction> transactions = new HashSet<>();
 

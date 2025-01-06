@@ -11,7 +11,7 @@ import java.util.Set;
 @Getter
 @Builder
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity(name = "Owner")
 @Table(name = "owner")
 public class Owner {
@@ -24,14 +24,17 @@ public class Owner {
     private String currency;
     private Instant createdAt;
 
+    @Builder.Default
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "owner_id", referencedColumnName = "id")
     private Set<Budget> budgets = new HashSet<>();
 
+    @Builder.Default
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     @JoinColumn(name = "owner_id", referencedColumnName = "id")
     private Set<Transaction> transactions = new HashSet<>();
 
+    @Builder.Default
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "owner_id", referencedColumnName = "id")
     private Set<SavingsGoal> savingsGoals = new HashSet<>();

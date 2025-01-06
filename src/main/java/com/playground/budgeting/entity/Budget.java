@@ -12,7 +12,7 @@ import java.util.Set;
 @Getter
 @Builder
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity(name = "Budget")
 @Table(name = "budget")
 public class Budget {
@@ -25,6 +25,7 @@ public class Budget {
     private BigDecimal spent;
     private Instant createdAt;
 
+    @Builder.Default
     @OneToMany(cascade = CascadeType.ALL)
     private Set<Transaction> transactions = new HashSet<>();
 

@@ -11,7 +11,7 @@ import java.util.Objects;
 @Getter
 @Builder
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity(name = "Transaction")
 @Table(name = "transaction")
 public class Transaction {
