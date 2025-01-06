@@ -38,6 +38,13 @@ public class Budget {
         this.createdAt = Instant.now();
     }
 
+    public void addExpenditure(BigDecimal expense) {
+        if (expense == null) {
+            return;
+        }
+        spent = spent.add(expense.abs());
+    }
+
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
