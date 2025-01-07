@@ -6,6 +6,7 @@ import com.playground.budgeting.entity.Transaction;
 import com.playground.budgeting.entity.type.CashFlowType;
 import com.playground.budgeting.repository.OwnerRepository;
 import com.playground.budgeting.repository.TransactionRepository;
+import com.playground.budgeting.subscription.BudgetPublisher;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -22,6 +23,7 @@ public class TransactionService {
 
     private final TransactionRepository transactionRepository;
     private final OwnerRepository ownerRepository;
+    private final BudgetPublisher budgetPublisher;
 
     @Transactional
     public Transaction addTransaction(TransactionInput transaction) {
@@ -33,7 +35,10 @@ public class TransactionService {
             existingBudget = owner.getBudgets().stream()
                 .filter(budget -> budget.getCategory().equals(transaction.category()))
                 .findFirst();
-            existingBudget.ifPresent(budget -> budget.addExpenditure(transaction.amount()));
+            existingBudget.ifPresent(budget -> {
+                budget.addExpenditure(transaction.amount());
+                budgetPublisher.publish(budget);
+            });
         }
 
         var newTransaction = Transaction.builder()

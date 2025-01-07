@@ -1,0 +1,3 @@
+type Subscription {
+    budgetPublishedFor(ownerId: ID!): Budget!
+}

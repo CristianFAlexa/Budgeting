@@ -16,3 +16,5 @@ spring:
     servlet:
       maxQueryDepth: 4
       exception-handlers-enabled: true
+    websocket:
+      path: /graphql
