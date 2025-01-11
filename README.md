@@ -86,3 +86,12 @@ subscription {
   }
 }
 ```
+
+Edit: For addTransaction after adding security, the following header should be present.
+```json
+{
+  "Authorization": "Bearer TOKEN",
+  "user_id": "1",
+  "user_roles":"add:transaction"
+}
+```
