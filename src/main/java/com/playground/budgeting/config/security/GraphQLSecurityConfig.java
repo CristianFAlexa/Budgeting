@@ -15,6 +15,8 @@ import org.springframework.security.web.authentication.preauth.PreAuthenticatedG
 
 import java.util.Collections;
 
+import static org.springframework.security.config.http.SessionCreationPolicy.STATELESS;
+
 @Configuration
 @EnableWebSecurity
 @EnableMethodSecurity(securedEnabled = true)
@@ -41,12 +43,19 @@ public class GraphQLSecurityConfig {
             .authorizeHttpRequests(authz -> authz.anyRequest().permitAll())
             .csrf(AbstractHttpConfigurer::disable)
             .httpBasic(AbstractHttpConfigurer::disable)
-            .sessionManagement(AbstractHttpConfigurer::disable)
             .logout(AbstractHttpConfigurer::disable)
-            .anonymous(AbstractHttpConfigurer::disable);
+            .anonymous(AbstractHttpConfigurer::disable)
+            .sessionManagement(session -> session.sessionCreationPolicy(STATELESS));
 
         return http.build();
     }
+
+/*
+    @Bean
+    public WebSecurityCustomizer webSecurityCustomizer() {
+        return web -> web.ignoring().requestMatchers("/subscription");
+    }
+*/
 
     private RequestHeadersPreAuthenticationFilter createRequestHeadersPreAuthenticationFilter() {
         var filter = new RequestHeadersPreAuthenticationFilter();
